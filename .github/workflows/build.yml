@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Check if index.html exists
+      - name: Check index.html
         run: |
           if [ ! -f "index.html" ]; then
-            echo "❌ index.html not found. Build failed!"
+            echo "❌ index.html missing"
             exit 1
           else
-            echo "✅ index.html found. Build successful!"
+            echo "✅ index.html found"
           fi
